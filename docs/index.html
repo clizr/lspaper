@@ -28,16 +28,16 @@
 				search: {
 					placeholder: {
 						'/zh-cn/': '搜索',
-						'/': 'Type to search'
+						'/': '键入以检索'
 					},
 					noData: {
 						'/zh-cn/': '找不到结果',
-						'/': 'No Results'
+						'/': '找不到结果'
 					}
 				},
 				pagination: {
-					previousText: '上一篇',
-					nextText: '下一篇',
+					previousText: '上一篇文稿',
+					nextText: '下一篇文稿',
 					crossChapter: true,
 					crossChapterText: true,
 				},
@@ -68,7 +68,7 @@
 									<div id="edit-history-list">
 										Loading...
 									</div>
-									<a href="https://github.com/xwtlt/lspaper/edit/master/${getCurrentFilePath()}" _target="_blank" id="edit-history-link">使用 Github 编辑本报</a>
+									<a href="https://github.com/xwtlt/lspaper/edit/main/${getCurrentFilePath()}" _target="_blank" id="edit-history-link">使用 Github 编辑本报</a>
 								</div>
 							`);
 							loadFileCommitHistory();
@@ -99,7 +99,7 @@
 						`;
 					});
 					$("#edit-history-list").html(html);
-					$("#latest-edit-time").html("最后更新于 " + humanTimeDiff(res[0].commit.author.date));
+					$("#latest-edit-time").html("本页最后更新于 " + humanTimeDiff(res[0].commit.author.date));
 				}
 				if (sessionStorage.getItem(`edit-history-${getCurrentFilePath()}'}`)) {
 					processJson(JSON.parse(sessionStorage.getItem(`edit-history-${getCurrentFilePath()}'`)));
@@ -131,10 +131,10 @@
 					return "刚才";
 				}
 				if (delta < 1000 * 60 * 60){
-					return parseInt(delta / (1000 * 60)) + " " + "分钟前";
+					return parseInt(delta / (1000 * 60)) + " " + "分前";
 				}
 				if (delta < 1000 * 60 * 60 * 24){
-					return parseInt(delta / (1000 * 60 * 60)) + " " + "小时前";
+					return parseInt(delta / (1000 * 60 * 60)) + " " + "时前";
 				}
 				let yesterday = new Date(now - 1000 * 60 * 60 * 24);
 				yesterday.setHours(0);
@@ -153,7 +153,7 @@
 					return "前日" + " " + time.getHours() + ":" + addPreZero(time.getMinutes(), 2);
 				}
 				if (delta < 1000 * 60 * 60 * 24 * 30){
-					return parseInt(delta / (1000 * 60 * 60 * 24)) + " " + "天前";
+					return parseInt(delta / (1000 * 60 * 60 * 24)) + " " + "日前";
 				}
 				let theFirstDayOfThisYear = new Date(now);
 				theFirstDayOfThisYear.setMonth(0);
@@ -233,7 +233,7 @@
 				transition: all .2s ease;
 				border-radius: 0 6px 6px 0;
 				background: #fff;
-				color: #5e72e4;
+				color: #006FFF;
 				box-shadow: 0 .125rem .25rem rgba(0,0,0,.075) !important;
 			}
 			p.tip, blockquote {
@@ -252,7 +252,7 @@
 				left: 0;
 				width: 100%;
 				height: 1px;
-				background-color: #5e72e4;
+				background-color: #006FFF;
 				transition: all 0.2s;
 				transform: scaleX(0);
 				backface-visibility: hidden;
@@ -280,7 +280,7 @@
 				content: "";
 				display: block;
 				position: absolute;
-				background: #5e72e4;
+				background: #006FFF;
 				opacity: 0.25;
 				pointer-events: none;
 				border-radius: 15px;
