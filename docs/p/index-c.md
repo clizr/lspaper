@@ -1,10 +1,10 @@
 # 💊 精华特色 | 名人名企
 
-[吴建豪｜公鷄伺服器200TB](p/pel-wujianhao.md)
+**[吴建豪｜公鷄伺服器200TB](p/pel-wujianhao.md)**
 
-[王海洋 | 海洋游｜泄露宅拯救世界](p/org-oceanyo.md)
+**[王海洋 | 海洋游｜泄露宅拯救世界](p/org-oceanyo.md)**
 
-[宋江｜成功學家輕鬆談合作](https://sweet.ciallo.life/)
+**[宋江｜成功學家輕鬆談合作](https://sweet.ciallo.life/)**
 
 [Saya｜因爲中二而思考](p/pel-saya.md)
 
