@@ -34,11 +34,11 @@
 				search: {
 					placeholder: {
 						'/zh-cn/': '搜索',
-						'/': '键入以检索'
+						'/': '键入以检索…'
 					},
 					noData: {
 						'/zh-cn/': '找不到结果',
-						'/': '找不到结果'
+						'/': '无法查找到索引。'
 					}
 				},
 				pagination: {
@@ -70,11 +70,11 @@
 							$("#edit-history").remove();
 							$("#main").after(`
 								<div class="markdown-section" id="edit-history">
-									<h2>编辑历史 <span id="latest-edit-time"></span></h2>
+									<h2>本文历史 <span id="latest-edit-time"></span></h2>
 									<div id="edit-history-list">
-										Loading...
+										本文尚且编写中…
 									</div>
-									<a href="https://github.com/xwtlt/lspaper/edit/main/${getCurrentFilePath()}" _target="_blank" id="edit-history-link">使用 Github 编辑本报</a>
+									<a href="https://github.com/xwtlt/lspaper/edit/main/${getCurrentFilePath()}" _target="_blank" id="edit-history-link">编辑本报之文</a>
 								</div>
 							`);
 							loadFileCommitHistory();
@@ -105,7 +105,7 @@
 						`;
 					});
 					$("#edit-history-list").html(html);
-					$("#latest-edit-time").html("本页最后更新于 " + humanTimeDiff(res[0].commit.author.date));
+					$("#latest-edit-time").html("本文最后更新于 " + humanTimeDiff(res[0].commit.author.date));
 				}
 				if (sessionStorage.getItem(`edit-history-${getCurrentFilePath()}'}`)) {
 					processJson(JSON.parse(sessionStorage.getItem(`edit-history-${getCurrentFilePath()}'`)));
@@ -134,7 +134,7 @@
 					delta = 0;
 				}
 				if (delta < 1000 * 60){
-					return "刚才";
+					return "0 秒前";
 				}
 				if (delta < 1000 * 60 * 60){
 					return parseInt(delta / (1000 * 60)) + " " + "分前";
@@ -203,13 +203,13 @@
 				margin-left: 0;
 			}
 			.title {
-				font-size: 50px;
+				font-size: 30px;
 				font-weight: 600;
 				color: #fff;
 				padding-top: 15vh
 			}
 			.subtitle {
-				font-size: 26px;
+				font-size: 20px;
 				margin-top: 30px;
 				opacity: .6;
 				font-weight: 400
@@ -222,7 +222,7 @@
 				white-space: nowrap;
 			}
 			#background{
-				background: linear-gradient(150deg, #7795f8 15%, #6772e5 70%, #555abf 94%);
+				background: linear-gradient(150deg, #006fff 15%, #006fff 70%, #006fff 94%);
 				position: fixed;
 				left: 0;
 				right: 0;
@@ -379,7 +379,7 @@
 				--base-color: #eee;
 				--strong-color: #eee;
 				--heading-h2-color: #eee;
-				--theme-color: #8a98eb;
+				--theme-color: #006fff;
 				--search-input-placeholder-color: rgba(255, 255, 255, 0.4);
 				--heading-color: #eee;
 				--table-row-odd-background: #323232;
@@ -437,10 +437,10 @@
 				opacity: 1;
 			}
 			#darkmode-toggle:before {
-				content: '💡 浅色模式';
+				content: '💡 浅色版';
 			}
 			html.darkmode #darkmode-toggle:before {
-				content: '🌙 深色模式';
+				content: '🌙 深色版';
 			}
 
 			#edit-history {
